@@ -50,6 +50,10 @@ spec:
     ##
     # create pod metadata labels here (match the selectorLabels)
     ##
+    metadata:
+      labels:
+        app: wordpress
+        tier: mysql
     spec:
       containers:
       - image: mysql:8.0
@@ -117,7 +121,7 @@ metadata:
   name: mysql-pv-claim
 spec:
   accessModes:
-    ReadWriteOnce
+    - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
